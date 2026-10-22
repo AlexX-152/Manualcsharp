@@ -3,245 +3,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clase C# v5.0 - Modificadores de Acceso y Encapsulamiento</title>
+    <title>Manual GitHub Pages y Clase de C# 5.0 - APA 7</title>
     <style>
-        :root {
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #212529;
-            --primary-color: #2c3e50;
-            --accent-color: #007acc;
-            --border-color: #e9ecef;
-            --code-bg: #1e1e1e;
-        }
+        /* ==============================================================
+           ESTILOS GENERALES SEGÚN NORMAS APA 7ma EDICIÓN
+           Estudiante: Fabián Cáceres (Cód: 256272)
+           Institución: IUTEPI - Análisis de Sistemas
+           ============================================================== */
 
+        /* Tipografía Arial 12pt (16px) e Interlineado Doble (2.0) */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px; /* Equivalente a 12pt en visualización web */
+            line-height: 2.0; /* Interlineado doble APA 7 */
+            color: #000000 !important; /* TEXTO STRICTAMENTE NEGRO */
+            background-color: #f4f4f4; /* Fondo neutro para resaltar la hoja */
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2.5rem 1rem;
+        /* Hoja de papel formato Carta en pantalla */
+        .contenedor-hoja {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Hoja blanca */
+            padding: 50px 60px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #000000;
+        }
+
+        /* REGLA STRICTA: NADA DE TEXTO AZUL O COLORES. TODO EN NEGRO */
+        h1, h2, h3, h4, p, a, li, span, strong, label, button {
+            color: #000000 !important;
+        }
+
+        /* Títulos APA */
+        h1 {
+            font-size: 16px;
+            font-weight: bold;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #000000; /* Línea separadora sencilla negra */
+            padding-bottom: 5px;
         }
 
         h3 {
-            color: var(--accent-color);
-            margin-top: 1.5rem;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 25px;
+            margin-bottom: 10px;
         }
 
-        p, ul {
-            font-size: 1rem;
-            color: #495057;
+        /* Párrafos con alineación justificada y sangría de primera línea */
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+            text-indent: 0.5in; /* Sangría APA 7 (aprox 36px) */
         }
 
-        ul {
-            padding-left: 1.2rem;
+        /* Quitar sangría a párrafos de la portada, listas y bloques de código */
+        .portada p, ul p, ol p, .sin-sangria {
+            text-indent: 0 !important;
+        }
+
+        /* Estilo de la Portada Institucional IUTEPI */
+        .portada {
+            text-align: center;
+            min-height: 850px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            page-break-after: always;
+            border-bottom: 2px dashed #000000;
+            margin-bottom: 40px;
+        }
+
+        .portada-encabezado {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .portada-titulo {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 50px 0;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .portada-datos {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* Menú de Navegación Simple (Estilo Botones Universitarios) */
+        .menu-navegacion {
+            border: 1px solid #000000;
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .btn-tab {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 0px;
+        }
+
+        .btn-tab:hover, .btn-tab.activo {
+            background-color: #e0e0e0;
+            text-decoration: underline;
+        }
+
+        /* Control de visibilidad de secciones mediante JavaScript */
+        .seccion-contenido {
+            display: none;
+        }
+
+        .seccion-contenido.activa {
+            display: block;
+        }
+
+        /* Listas configuradas con interlineado APA */
+        ol, ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            line-height: 2.0;
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
+            text-align: justify;
         }
 
+        /* Bloque de Código formateado de forma simple */
         pre {
-            background-color: var(--code-bg);
-            color: #d4d4d4;
-            padding: 1.2rem;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-family: 'Consolas', 'Courier New', Courier, monospace;
-            font-size: 0.95rem;
+            background-color: #f8f8f8;
+            border: 1px solid #000000;
+            padding: 15px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 13px;
             line-height: 1.4;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin-top: 15px;
+            margin-bottom: 10px;
         }
 
-        .keyword { color: #569cd6; }
-        .type { color: #4ec9b0; }
-        .string { color: #ce9178; }
-        .comment { color: #57a64a; }
-        .method { color: #dcdcaa; }
-        .number { color: #b5cea8; }
+        /* Botón simple para copiar código */
+        .btn-copiar {
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 5px 12px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .btn-copiar:hover {
+            background-color: #d9d9d9;
+        }
+
+        /* Alerta de confirmación */
+        #mensaje-alerta {
+            display: none;
+            background-color: #f0f0f0;
+            color: #000000;
+            border: 1px solid #000000;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Sangría Francesa para Referencias APA 7 */
+        .referencia {
+            padding-left: 36px;
+            text-indent: -36px;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 2.0;
+        }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 3rem;
-            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #000000;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Programación Orientada a Objetos en C# 5.0</h1>
-        <p>Guía Práctica: Modificadores de Acceso y Encapsulamiento</p>
-    </header>
+    <!-- CONTENEDOR TIPO HOJA CARTA -->
+    <div class="contenedor-hoja">
 
-    <div class="container">
+        <!-- ==============================================================
+             PORTADA INSTITUCIONAL APA 7 - IUTEPI
+             ============================================================== -->
+        <section class="portada">
+            <div class="portada-encabezado">
+                INSTITUTO UNIVERSITARIO DE TECNOLOGÍA EL PALMAR (IUTEPI)<br>
+                SUBDIRECCIÓN ACADÉMICA<br>
+                DEPARTAMENTO DE ANÁLISIS DE SISTEMAS<br>
+                CÁTEDRA DE PROGRAMACIÓN
+            </div>
 
-        <!-- Sección: Encapsulamiento -->
-        <div class="card">
-            <h2>1. ¿Qué es el Encapsulamiento?</h2>
+            <div class="portada-titulo">
+                MANUAL DE PUBLICACIÓN EN GITHUB PAGES Y LECCIÓN BÁSICA DE PROGRAMACIÓN EN C# 5.0: MODIFICADORES DE ACCESO Y ENCAPSULAMIENTO
+            </div>
+
+            <div class="portada-datos">
+                <strong>Autor:</strong> Fabián Cáceres<br>
+                <strong>Código / Cédula:</strong> 256272<br>
+                <strong>Carrera:</strong> Análisis de Sistemas<br>
+                <strong>Semestre:</strong> 3er Semestre<br>
+                <strong>Profesor:</strong> Asignado de Cátedra<br><br>
+                Valencia, Carabobo - 2026
+            </div>
+        </section>
+
+        <!-- MENÚ DE PESTAÑAS SIMPLES EN JAVASCRIPT VAINILLA -->
+        <nav class="menu-navegacion">
+            <button id="tab1" class="btn-tab activo" onclick="cambiarSeccion('seccion-github', 'tab1')">1. Manual GitHub Pages</button>
+            <button id="tab2" class="btn-tab" onclick="cambiarSeccion('seccion-csharp', 'tab2')">2. Clase C# 5.0 (POO)</button>
+            <button id="tab3" class="btn-tab" onclick="cambiarSeccion('seccion-referencias', 'tab3')">3. Referencias APA 7</button>
+        </nav>
+
+        <!-- Mensaje flotante al copiar código -->
+        <div id="mensaje-alerta">¡Código copiado al portapapeles correctamente!</div>
+
+        <!-- ==============================================================
+             SECCIÓN 1: MANUAL PASO A PASO EN GITHUB PAGES
+             ============================================================== -->
+        <div id="seccion-github" class="seccion-contenido activa">
+            <h1>Manual Paso a Paso: Publicación en GitHub Pages</h1>
+
+            <h2>1. Introducción a GitHub y GitHub Pages</h2>
             <p>
-                El <strong>encapsulamiento</strong> es uno de los cuatro pilares fundamentales de la Programación Orientada a Objetos (POO).
-                Consiste en ocultar los detalles internos y el estado de un objeto, exponiendo únicamente una interfaz segura para interactuar con él.
+                GitHub es una plataforma en la nube ampliamente utilizada para almacenar proyectos de software y controlar sus distintas versiones. Permite a los programadores trabajar de forma organizada y guardar sus archivos fuente de manera segura.
             </p>
-            <h3>¿Para qué sirve?</h3>
-            <ul>
-                <li><strong>Protección de datos:</strong> Evita que el estado interno de un objeto sea modificado de forma indebida o inconsistente desde el exterior.</li>
-                <li><strong>Mantenibilidad:</strong> Permite modificar la implementación interna de una clase sin afectar a otros componentes del programa que la utilicen.</li>
-                <li><strong>Control de acceso:</strong> Permite definir propiedades de solo lectura, solo escritura o con validaciones personalizadas.</li>
-            </ul>
+            <p>
+                Por su parte, GitHub Pages es un servicio gratuito ofrecido por GitHub que permite alojar páginas web estáticas (creadas con HTML, CSS y JavaScript) directamente desde un repositorio. Es una herramienta ideal para estudiantes de análisis de sistemas, ya que permite publicar proyectos escolares en Internet sin pagar un servidor.
+            </p>
+
+            <h2>2. Paso 1: Crear una cuenta en GitHub</h2>
+            <p>Para iniciar el proceso de publicación, se debe crear un usuario en la plataforma oficial:</p>
+            <ol>
+                <li>Abrir el navegador web e ingresar a la página oficial: <strong>github.com</strong>.</li>
+                <li>Hacer clic en el botón superior derecho llamado <strong>"Sign up"</strong> (Registrarse).</li>
+                <li>Escribir un correo electrónico válido, asignar una contraseña segura y elegir un nombre de usuario.</li>
+                <li>Completar la prueba de seguridad y confirmar el código enviado al correo electrónico.</li>
+            </ol>
+
+            <h2>3. Paso 2: Crear un nuevo repositorio</h2>
+            <p>Un repositorio es una carpeta digital donde guardaremos los archivos del sitio web:</p>
+            <ol>
+                <li>Al iniciar sesión, presionar el ícono con el signo de más (<strong>+</strong>) en la esquina superior derecha y seleccionar <strong>"New repository"</strong>.</li>
+                <li>En el campo <strong>Repository name</strong>, escribir un nombre para el proyecto (ejemplo: <code>mi-primer-sitio</code>).</li>
+                <li>Asegurarse de mantener seleccionada la opción <strong>Public</strong> (Público).</li>
+                <li>Marcar la casilla que dice <strong>"Add a README file"</strong>.</li>
+                <li>Hacer clic en el botón verde <strong>"Create repository"</strong> al final de la página.</li>
+            </ol>
+
+            <h2>4. Paso 3: Subir o crear el archivo index.html</h2>
+            <p>El archivo principal del sitio web siempre debe llamarse <code>index.html</code> para que el servidor lo lea automáticamente:</p>
+            <ol>
+                <li>Dentro del repositorio creado, hacer clic en el botón <strong>"Add file"</strong> y seleccionar <strong>"Create new file"</strong>.</li>
+                <li>En la casilla de nombre del archivo, escribir exactamente: <code>index.html</code> (todo en minúsculas).</li>
+                <li>Copiar y pegar el código HTML del sitio web en el cuadro de texto principal.</li>
+                <li>Ir al final de la página y presionar el botón verde <strong>"Commit changes..."</strong> para guardar.</li>
+            </ol>
+
+            <h2>5. Paso 4: Configurar GitHub Pages en Settings</h2>
+            <p>Una vez guardado el archivo, se debe activar la función de publicación web:</p>
+            <ol>
+                <li>En la barra de pestañas superior del repositorio, hacer clic en <strong>"Settings"</strong> (Configuración).</li>
+                <li>En el menú lateral izquierdo, buscar el apartado <strong>"Pages"</strong> (ubicado en la sección <i>Code and automation</i>).</li>
+                <li>En la sección <strong>Branch</strong>, cambiar la opción <i>None</i> por la rama <strong>main</strong> (o <i>master</i>).</li>
+                <li>Hacer clic en el botón <strong>"Save"</strong> (Guardar).</li>
+            </ol>
+
+            <h2>6. Paso 5: Obtener el enlace del sitio publicado</h2>
+            <p>Finalmente, se debe verificar que la página esté en línea:</p>
+            <ol>
+                <li>Esperar aproximadamente 2 minutos mientras GitHub procesa el código.</li>
+                <li>Actualizar la página de <i>Settings > Pages</i>. Aparecerá un cuadro de color arriba con el mensaje: <strong>"Your site is live at..."</strong>.</li>
+                <li>Presionar el botón <strong>"Visit site"</strong> para abrir tu sitio web en Internet.</li>
+            </ol>
+
+            <h2>Código HTML de Ejemplo para el archivo index.html</h2>
+            <p class="sin-sangria">Puedes utilizar este código básico para probar tu primer sitio web:</p>
+            <pre id="codigo-html-ejemplo">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Primera Página&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style="font-family: Arial; text-align: center; color: #000000;"&gt;
+    &lt;h1&gt;¡Hola Mundo desde GitHub Pages!&lt;/h1&gt;
+    &lt;p&gt;Página creada por Fabián Cáceres para la cátedra de Programación en IUTEPI.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            <button class="btn-copiar" onclick="copiarTexto('codigo-html-ejemplo')">Copiar Código HTML</button>
         </div>
 
-        <!-- Sección: Modificadores de Acceso -->
-        <div class="card">
-            <h2>2. Modificadores de Acceso Principales</h2>
+        <!-- ==============================================================
+             SECCIÓN 2: CLASE DE C# 5.0 (MODIFICADORES Y ENCAPSULAMIENTO)
+             ============================================================== -->
+        <div id="seccion-csharp" class="seccion-contenido">
+            <h1>Lección de C# 5.0: Modificadores de Acceso y Encapsulamiento</h1>
+
+            <h2>1. El Concepto de Encapsulamiento en POO</h2>
             <p>
-                Los modificadores de acceso definen el nivel de visibilidad y alcance que tienen las clases, métodos y atributos dentro del proyecto:
+                En la Programación Orientada a Objetos (POO), el encapsulamiento es el principio de proteger los datos internos de una clase para evitar que sean modificados de manera directa o incorrecta desde fuera de ella. Permite ocultar los detalles de implementación y exponer únicamente lo necesario a través de métodos o propiedades públicas.
             </p>
+
+            <h2>2. ¿Para qué sirven los Modificadores de Acceso?</h2>
+            <p>
+                Los modificadores de acceso son palabras clave utilizadas en lenguajes como C# para definir el nivel de visibilidad o alcance que tienen las variables, atributos y métodos dentro del programa. Sirven para dar seguridad al código y garantizar la integridad de los datos de la aplicación.
+            </p>
+
+            <h2>3. Los 4 Modificadores de Acceso Principales en C# 5.0</h2>
+            <p>En la versión 5.0 del lenguaje C# contamos con los siguientes cuatro modificadores principales:</p>
             <ul>
-                <li><strong><code>public</code> (Público):</strong> El miembro es accesible desde cualquier parte del código y desde otros ensamblados.</li>
-                <li><strong><code>private</code> (Privado):</strong> El miembro solo es accesible dentro de la misma clase donde fue declarado. Es la base del encapsulamiento.</li>
-                <li><strong><code>protected</code> (Protegido):</strong> El miembro es accesible dentro de su propia clase y por clases derivadas (herencia).</li>
+                <li><strong>public:</strong> El elemento es accesible desde cualquier clase o archivo del programa. No posee restricciones.</li>
+                <li><strong>private:</strong> El elemento solo es accesible dentro de la misma clase donde fue creado. Es el nivel de acceso más restringido.</li>
+                <li><strong>protected:</strong> El elemento es accesible dentro de su propia clase y también en las clases hijas que hereden de ella.</li>
+                <li><strong>internal:</strong> El elemento es accesible desde cualquier clase que pertenezca al mismo proyecto o archivo compilado (.exe o .dll).</li>
             </ul>
-        </div>
 
-        <!-- Sección: Ejemplo de Código C# 5 -->
-        <div class="card">
-            <h2>3. Ejemplo Práctico en C# v5.0</h2>
-            <p>
-                A continuación se presenta un ejemplo completo que demuestra el uso de atributos privados, propiedades auto-implementadas (característica presente en C# 5), métodos públicos y miembros protegidos mediante herencia:
-            </p>
+            <h2>4. Ejemplo Práctico Integrador en C# 5.0</h2>
+            <p>A continuación se presenta un programa completo escrito en C# 5.0 que demuestra el funcionamiento del encapsulamiento mediante una clase bancaria:</p>
 
-<pre><code><span class="keyword">using</span> System;
+            <pre id="codigo-csharp-ejemplo">using System;
 
-<span class="keyword">namespace</span> <span class="type">EstructuraCSharp</span>
+namespace EjercicioIutepi
 {
-    <span class="comment">// Clase Base: CuentaBancaria</span>
-    <span class="keyword">public class</span> <span class="type">CuentaBancaria</span>
+    // Clase que representa una Cuenta Bancaria
+    public class CuentaBancaria
     {
-        <span class="comment">// ATRIBUTO PRIVADO: Encapsulado, no accesible fuera de esta clase</span>
-        <span class="keyword">private decimal</span> saldo;
+        // 1. ATRIBUTO PRIVADO (private): Solo se lee/modifica DENTRO de esta clase.
+        private double saldo;
 
-        <span class="comment">// PROPIEDAD PÚBLICA: Permite acceso controlado al saldo (Lectura pública)</span>
-        <span class="keyword">public decimal</span> Saldo
+        // 2. ATRIBUTO PROTEGIDO (protected): Accesible en esta clase y por herencia.
+        protected string titular;
+
+        // 3. ATRIBUTO INTERNO (internal): Accesible desde todo el proyecto actual.
+        internal string numeroCuenta;
+
+        // CONSTRUCTOR PÚBLICO (public)
+        public CuentaBancaria(string titular, string numeroCuenta, double saldoInicial)
         {
-            <span class="keyword">get</span> { <span class="keyword">return</span> saldo; }
-            <span class="keyword">private set</span> { saldo = value; }
+            this.titular = titular;
+            this.numeroCuenta = numeroCuenta;
+            this.saldo = saldoInicial;
         }
 
-        <span class="comment">// PROPIEDAD AUTO-IMPLEMENTADA (C# 5.0)</span>
-        <span class="keyword">public string</span> Titular { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-
-        <span class="comment">// CONSTRUCTOR PÚBLICO</span>
-        <span class="keyword">public</span> <span class="method">CuentaBancaria</span>(<span class="keyword">string</span> titular, <span class="keyword">decimal</span> saldoInicial)
+        // MÉTODOS PÚBLICOS (public) para manipular la variable privada con seguridad
+        public void Depositar(double monto)
         {
-            Titular = titular;
-            saldo = saldoInicial;
-        }
-
-        <span class="comment">// MÉTODO PÚBLICO: Permite modificar el estado privado bajo reglas de negocio</span>
-        <span class="keyword">public void</span> <span class="method">Depositar</span>(<span class="keyword">decimal</span> monto)
-        {
-            <span class="keyword">if</span> (monto &gt; <span class="number">0</span>)
+            if (monto > 0)
             {
-                saldo += monto;
-                Console.<span class="method">WriteLine</span>(<span class="string">"Depósito exitoso. Nuevo saldo: {0:C}"</span>, saldo);
+                this.saldo += monto;
+                Console.WriteLine("Depósito de $" + monto + " exitoso.");
             }
         }
 
-        <span class="comment">// MÉTODO PROTEGIDO: Solo accesible por esta clase y sus clases hijas (herencia)</span>
-        <span class="keyword">protected void</span> <span class="method">NotificarOperacion</span>(<span class="keyword">string</span> mensaje)
+        public void MostrarInformacion()
         {
-            Console.<span class="method">WriteLine</span>(<span class="string">"[NOTIFICACIÓN]: {0}"</span>, mensaje);
+            Console.WriteLine("Titular: " + this.titular);
+            Console.WriteLine("Número de Cuenta: " + this.numeroCuenta);
+            Console.WriteLine("Saldo Actual: $" + this.saldo);
         }
     }
 
-    <span class="comment">// Clase Derivada (Herencia)</span>
-    <span class="keyword">public class</span> <span class="type">CuentaAhorro</span> : <span class="type">CuentaBancaria</span>
+    // Clase Ejecutable principal
+    class Program
     {
-        <span class="keyword">public decimal</span> TasaInteres { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-
-        <span class="keyword">public</span> <span class="method">CuentaAhorro</span>(<span class="keyword">string</span> titular, <span class="keyword">decimal</span> saldoInicial, <span class="keyword">decimal</span> tasa)
-            : <span class="keyword">base</span>(titular, saldoInicial)
+        static void Main(string[] args)
         {
-            TasaInteres = tasa;
-        }
+            // Creación del objeto instanciando la clase
+            CuentaBancaria miCuenta = new CuentaBancaria("Fabián Cáceres", "0102-00256272", 150.0);
 
-        <span class="keyword">public void</span> <span class="method">AplicarInteres</span>()
-        {
-            <span class="keyword">decimal</span> interes = Saldo * TasaInteres;
-            Depositar(interes);
-            <span class="comment">// Uso del método protegido de la clase padre</span>
-            <span class="method">NotificarOperacion</span>(<span class="string">"Se aplicó el interés mensual al saldo."</span>);
-        }
-    }
+            // Acceso a métodos públicos
+            miCuenta.MostrarInformacion();
+            miCuenta.Depositar(50.0);
+            miCuenta.MostrarInformacion();
 
-    <span class="comment">// Clase Principal (Punto de entrada)</span>
-    <span class="keyword">class</span> <span class="type">Program</span>
-    {
-        <span class="keyword">static void</span> <span class="method">Main</span>(<span class="keyword">string</span>[] args)
-        {
-            <span class="type">CuentaAhorro</span> miCuenta = <span class="keyword">new</span> <span class="type">CuentaAhorro</span>(<span class="string">"Fabian Cáceres"</span>, <span class="number">1000.00m</span>, <span class="number">0.05m</span>);
+            // EJEMPLO DE ERROR DE COMPILACIÓN POR ENCAPSULAMIENTO:
+            // miCuenta.saldo = 1000.0; // ERROR: 'saldo' es privado y no se puede tocar desde afuera.
 
-            Console.<span class="method">WriteLine</span>(<span class="string">"Titular: {0}"</span>, miCuenta.Titular);
-            miCuenta.<span class="method">Depositar</span>(<span class="number">500</span>);
-            miCuenta.<span class="method">AplicarInteres</span>();
-
-            <span class="comment">// miCuenta.saldo = 5000; // ERROR DE COMPILACIÓN: 'saldo' es privado</span>
-            <span class="comment">// miCuenta.NotificarOperacion("Test"); // ERROR: 'NotificarOperacion' es protegido</span>
+            Console.WriteLine("Presione una tecla para finalizar...");
+            Console.ReadKey();
         }
     }
-}</code></pre>
+}</pre>
+            <button class="btn-copiar" onclick="copiarTexto('codigo-csharp-ejemplo')">Copiar Código C# 5.0</button>
         </div>
+
+        <!-- ==============================================================
+             SECCIÓN 3: REFERENCIAS BIBLIOGRÁFICAS (NORMAS APA 7)
+             ============================================================== -->
+        <div id="seccion-referencias" class="seccion-contenido">
+            <h1>Referencias Bibliográficas (APA 7ma Edición)</h1>
+
+            <div class="referencia">
+                Duckett, J. (2014). <i>HTML and CSS: Design and Build Websites</i>. John Wiley & Sons.
+            </div>
+
+            <div class="referencia">
+                GitHub Docs. (2026). <i>Getting started with GitHub Pages</i>. Recuperado de https://docs.github.com/es/pages
+            </div>
+
+            <div class="referencia">
+                Instituto Universitario de Tecnología El Palmar. (2025). <i>Guía metodológica para la elaboración de trabajos escritos y de investigación</i>. Departamento de Publicaciones IUTEPI.
+            </div>
+
+            <div class="referencia">
+                Microsoft Docs. (2022). <i>C# Guide: Access Modifiers and Encapsulation in C# 5.0</i>. Microsoft Corporation.
+            </div>
+
+            <div class="referencia">
+                Sznajdleder, P. A. (2017). <i>Algoritmos y programación orientada a objetos en C#</i>. Editorial Alfaomega.
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA UNIVERSITARIO -->
+        <footer>
+            <p>© 2026 Instituto Universitario de Tecnología El Palmar (IUTEPI) - Asignatura Programación</p>
+        </footer>
 
     </div>
 
-    <footer>
-        <p>Instituto Universitario de Tecnología para la Informática </p>
-    </footer>
+    <!-- ==============================================================
+         LÓGICA JAVASCRIPT SIMPLE Y PRINCIPIANTE (3ER SEMESTRE)
+         ============================================================== -->
+    <script>
+        // Función 1: Cambiar entre pestañas/secciones
+        function cambiarSeccion(idSeccion, idTab) {
+            // Ocultar todas las secciones
+            var secciones = document.getElementsByClassName("seccion-contenido");
+            for (var i = 0; i < secciones.length; i++) {
+                secciones[i].classList.remove("activa");
+            }
 
+            // Desactivar todos los botones de las pestañas
+            var botones = document.getElementsByClassName("btn-tab");
+            for (var j = 0; j < botones.length; j++) {
+                botones[j].classList.remove("activo");
+            }
+
+            // Mostrar la sección elegida y marcar su botón activo
+            document.getElementById(idSeccion).classList.add("activa");
+            document.getElementById(idTab).classList.add("activo");
+        }
+
+        // Función 2: Copiar texto al portapapeles usando JavaScript clásico
+        function copiarTexto(idElemento) {
+            var bloqueCodigo = document.getElementById(idElemento);
+            var texto = bloqueCodigo.innerText;
+
+            // Crear caja de texto temporal
+            var areaTemporal = document.createElement("textarea");
+            areaTemporal.value = texto;
+            document.body.appendChild(areaTemporal);
+
+            // Seleccionar y copiar el contenido
+            areaTemporal.select();
+            document.execCommand("copy");
+
+            // Borrar el elemento temporal de la memoria
+            document.body.removeChild(areaTemporal);
+
+            // Mostrar mensaje de confirmación durante 3 segundos
+            var mensaje = document.getElementById("mensaje-alerta");
+            mensaje.style.display = "block";
+
+            setTimeout(function() {
+                mensaje.style.display = "none";
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
