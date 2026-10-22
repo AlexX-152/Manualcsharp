@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase C# v5.0 - Modificadores de Acceso y Encapsulamiento</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #2c3e50;
+            --accent-color: #007acc;
+            --border-color: #e9ecef;
+            --code-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-top: 1.5rem;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #d4d4d4;
+            padding: 1.2rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .keyword { color: #569cd6; }
+        .type { color: #4ec9b0; }
+        .string { color: #ce9178; }
+        .comment { color: #57a64a; }
+        .method { color: #dcdcaa; }
+        .number { color: #b5cea8; }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Programación Orientada a Objetos en C# 5.0</h1>
+        <p>Guía Práctica: Modificadores de Acceso y Encapsulamiento</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Sección: Encapsulamiento -->
+        <div class="card">
+            <h2>1. ¿Qué es el Encapsulamiento?</h2>
+            <p>
+                El <strong>encapsulamiento</strong> es uno de los cuatro pilares fundamentales de la Programación Orientada a Objetos (POO).
+                Consiste en ocultar los detalles internos y el estado de un objeto, exponiendo únicamente una interfaz segura para interactuar con él.
+            </p>
+            <h3>¿Para qué sirve?</h3>
+            <ul>
+                <li><strong>Protección de datos:</strong> Evita que el estado interno de un objeto sea modificado de forma indebida o inconsistente desde el exterior.</li>
+                <li><strong>Mantenibilidad:</strong> Permite modificar la implementación interna de una clase sin afectar a otros componentes del programa que la utilicen.</li>
+                <li><strong>Control de acceso:</strong> Permite definir propiedades de solo lectura, solo escritura o con validaciones personalizadas.</li>
+            </ul>
+        </div>
+
+        <!-- Sección: Modificadores de Acceso -->
+        <div class="card">
+            <h2>2. Modificadores de Acceso Principales</h2>
+            <p>
+                Los modificadores de acceso definen el nivel de visibilidad y alcance que tienen las clases, métodos y atributos dentro del proyecto:
+            </p>
+            <ul>
+                <li><strong><code>public</code> (Público):</strong> El miembro es accesible desde cualquier parte del código y desde otros ensamblados.</li>
+                <li><strong><code>private</code> (Privado):</strong> El miembro solo es accesible dentro de la misma clase donde fue declarado. Es la base del encapsulamiento.</li>
+                <li><strong><code>protected</code> (Protegido):</strong> El miembro es accesible dentro de su propia clase y por clases derivadas (herencia).</li>
+            </ul>
+        </div>
+
+        <!-- Sección: Ejemplo de Código C# 5 -->
+        <div class="card">
+            <h2>3. Ejemplo Práctico en C# v5.0</h2>
+            <p>
+                A continuación se presenta un ejemplo completo que demuestra el uso de atributos privados, propiedades auto-implementadas (característica presente en C# 5), métodos públicos y miembros protegidos mediante herencia:
+            </p>
+
+<pre><code><span class="keyword">using</span> System;
+
+<span class="keyword">namespace</span> <span class="type">EstructuraCSharp</span>
+{
+    <span class="comment">// Clase Base: CuentaBancaria</span>
+    <span class="keyword">public class</span> <span class="type">CuentaBancaria</span>
+    {
+        <span class="comment">// ATRIBUTO PRIVADO: Encapsulado, no accesible fuera de esta clase</span>
+        <span class="keyword">private decimal</span> saldo;
+
+        <span class="comment">// PROPIEDAD PÚBLICA: Permite acceso controlado al saldo (Lectura pública)</span>
+        <span class="keyword">public decimal</span> Saldo
+        {
+            <span class="keyword">get</span> { <span class="keyword">return</span> saldo; }
+            <span class="keyword">private set</span> { saldo = value; }
+        }
+
+        <span class="comment">// PROPIEDAD AUTO-IMPLEMENTADA (C# 5.0)</span>
+        <span class="keyword">public string</span> Titular { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+        <span class="comment">// CONSTRUCTOR PÚBLICO</span>
+        <span class="keyword">public</span> <span class="method">CuentaBancaria</span>(<span class="keyword">string</span> titular, <span class="keyword">decimal</span> saldoInicial)
+        {
+            Titular = titular;
+            saldo = saldoInicial;
+        }
+
+        <span class="comment">// MÉTODO PÚBLICO: Permite modificar el estado privado bajo reglas de negocio</span>
+        <span class="keyword">public void</span> <span class="method">Depositar</span>(<span class="keyword">decimal</span> monto)
+        {
+            <span class="keyword">if</span> (monto &gt; <span class="number">0</span>)
+            {
+                saldo += monto;
+                Console.<span class="method">WriteLine</span>(<span class="string">"Depósito exitoso. Nuevo saldo: {0:C}"</span>, saldo);
+            }
+        }
+
+        <span class="comment">// MÉTODO PROTEGIDO: Solo accesible por esta clase y sus clases hijas (herencia)</span>
+        <span class="keyword">protected void</span> <span class="method">NotificarOperacion</span>(<span class="keyword">string</span> mensaje)
+        {
+            Console.<span class="method">WriteLine</span>(<span class="string">"[NOTIFICACIÓN]: {0}"</span>, mensaje);
+        }
+    }
+
+    <span class="comment">// Clase Derivada (Herencia)</span>
+    <span class="keyword">public class</span> <span class="type">CuentaAhorro</span> : <span class="type">CuentaBancaria</span>
+    {
+        <span class="keyword">public decimal</span> TasaInteres { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+        <span class="keyword">public</span> <span class="method">CuentaAhorro</span>(<span class="keyword">string</span> titular, <span class="keyword">decimal</span> saldoInicial, <span class="keyword">decimal</span> tasa)
+            : <span class="keyword">base</span>(titular, saldoInicial)
+        {
+            TasaInteres = tasa;
+        }
+
+        <span class="keyword">public void</span> <span class="method">AplicarInteres</span>()
+        {
+            <span class="keyword">decimal</span> interes = Saldo * TasaInteres;
+            Depositar(interes);
+            <span class="comment">// Uso del método protegido de la clase padre</span>
+            <span class="method">NotificarOperacion</span>(<span class="string">"Se aplicó el interés mensual al saldo."</span>);
+        }
+    }
+
+    <span class="comment">// Clase Principal (Punto de entrada)</span>
+    <span class="keyword">class</span> <span class="type">Program</span>
+    {
+        <span class="keyword">static void</span> <span class="method">Main</span>(<span class="keyword">string</span>[] args)
+        {
+            <span class="type">CuentaAhorro</span> miCuenta = <span class="keyword">new</span> <span class="type">CuentaAhorro</span>(<span class="string">"Fabian Cáceres"</span>, <span class="number">1000.00m</span>, <span class="number">0.05m</span>);
+
+            Console.<span class="method">WriteLine</span>(<span class="string">"Titular: {0}"</span>, miCuenta.Titular);
+            miCuenta.<span class="method">Depositar</span>(<span class="number">500</span>);
+            miCuenta.<span class="method">AplicarInteres</span>();
+
+            <span class="comment">// miCuenta.saldo = 5000; // ERROR DE COMPILACIÓN: 'saldo' es privado</span>
+            <span class="comment">// miCuenta.NotificarOperacion("Test"); // ERROR: 'NotificarOperacion' es protegido</span>
+        }
+    }
+}</code></pre>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Desarrollado para la Cátedra de Programación — Instituto Universitario de Tecnología El Palmar (IUTEPI)</p>
+    </footer>
+
+</body>
+</html>
